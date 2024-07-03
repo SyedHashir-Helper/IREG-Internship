@@ -1,6 +1,6 @@
 import React from 'react'
 import "../../../styles/GmailSearch.css"
-import {Row, Col, Button} from "antd"
+import {Row, Col, Button, Divider} from "antd"
 import DropDown from '../Dropdown/DropDown'
 import DatePickerBox from '../DatePicker/DatePickerBox'
 import Selector from '../Selector/Selector'
@@ -22,17 +22,18 @@ const inputs = [
     },
 ]
 
-const GmailSearch = () => {
+const GmailSearch = ({setActiveTabkey}) => {
   return (
     <>
         <Col className='gmail-tab'>
             <Row className='row-padding'>
-                <Col md={24} xs={24}>
+                <Col md={24} xs={24} style={{
+                    padding: "0em 0em 1em 0em"
+                }}>
                     <div className='label'>
                         Search Emails in Gmail
                     </div>
                         Extract email messages that match the following search criteria in Gmail
-
                 </Col>
             </Row>
             
@@ -70,23 +71,23 @@ const GmailSearch = () => {
             <Row className='row-padding'>
                 Search Query : &nbsp; <a> label:inbox</a>
             </Row>
-
-            <hr style={{
-                opacity: "1"
-            }}>
-
-            </hr>
+            <Divider/>
             <Row className='row-padding'>
-                <Col className='col-padding' md={3} xs={12}>
+                <Col md={3} xs={12}>
                     <Button>Close</Button>
                 </Col>
-                <Col className='col-padding' md={18} xs={12}>
+                <Col md={18} xs={12}>
                     <Button icon={<FaCrown/>}>
                         Go Premium
                     </Button>
                 </Col>
-                <Col className='col-padding' md={3}>
-                    <Button type='primary' style={{
+                <Col md={3} xs={12}>
+                    <Button type='primary' onClick={()=>{
+                        console.log("Hi")
+                            setActiveTabkey("2")
+                        console.log("Bi")
+                    }
+                    } style={{
                         borderRadius: "3px"
                     }}>Continue</Button>
                 </Col>
